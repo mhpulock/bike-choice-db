@@ -114,6 +114,15 @@ async function run() {
             res.json(result);
         })
 
+        ////delete bike
+        app.delete("/dashboard/manageproduct/:id", async (req, res) => {
+            const id = req.params.id;
+            const queary = { _id: ObjectId(id) };
+            const result = await productCollection.deleteOne(queary);
+            console.log('deleting order id ' + result);
+            res.json(result);
+        })
+
     }
     finally {
 
